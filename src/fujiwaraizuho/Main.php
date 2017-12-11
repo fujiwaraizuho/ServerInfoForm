@@ -20,7 +20,6 @@ use pocketmine\network\mcpe\protocol\ServerSettingsRequestPacket;
 class Main extends PluginBase implements Listener
 {
 
-	const FORM_ID = 114514;
 	public $config_Data = [];
 	public $data = [];
 
@@ -119,11 +118,12 @@ class Main extends PluginBase implements Listener
 	{
 		$player = $event->getPlayer();
 		$packet = $event->getPacket();
+		$rand = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
 
 		if ($packet instanceof ServerSettingsRequestPacket) {
 
 			$pk = new ServerSettingsResponsePacket();
-			$pk->formId = self::FORM_ID;
+			$pk->formId = $rand;
 			$pk->formData = $this->data;
 			$player->dataPacket($pk);
 
