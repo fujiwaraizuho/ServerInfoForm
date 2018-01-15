@@ -46,36 +46,6 @@ class Main extends PluginBase implements Listener
 
 		$config_Data = $this->config->getAll();
 
-		////【警告】以下のライセンス認証コードを改変および削除することはライセンス違反となります【警告】////
-		$url = "https://fujipvp.info/pluginLICENSE.txt";
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, $url); 
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-		$license =  curl_exec($ch);
-		curl_close($ch);
-
-		$number = $this->license->get('LICENSE');
-
-		if($license == $number){
-
-			$this->getLogger()->info("§aINFO§f >> §aライセンス認証に成功しました。");
-
-		}else{
-
-			$this->getLogger()->info("§cERROR§f >> §cライセンス認証に失敗しました。");
-			$this->getLogger()->info("§cERROR§f >> §cLICENSE.ymlに");
-			$this->getLogger()->info("§cERROR§f >> §chttps://fujipvp.info/license.html");
-			$this->getLogger()->info("§cERROR§f >> §cの正しいライセンスキーを入力してください");
-
-			$this->getServer()->getPluginManager()->disablePlugin($this);
-
-			return true;
-		}
-		////【警告】以上のライセンス認証コードを改変および削除することはライセンス違反となります【警告】////
-
 		if ($config_Data["アイコンを設定するか"] === true) {
 
 			$data = [
