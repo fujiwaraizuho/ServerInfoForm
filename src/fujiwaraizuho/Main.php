@@ -31,18 +31,13 @@ class Main extends PluginBase implements Listener
 			mkdir($this->getDataFolder(), 0744, true);
 		}
 
-		$this->license = new Config($this->getDataFolder() . "LICENSE.yml", Config::YAML,
-			array(
-				'LICENSE' => '入力してください'
-			));
-
 		$this->config = new Config($this->getDataFolder() . "Config.yml", Config::YAML,
-			array(
+			[
 				'タイトル' => 'サーバー紹介',
 				'サーバー紹介文' => 'Hello World!',
 				'アイコンを設定するか' => true,
 				'アイコンURL' => 'https://minecraft-ja.gamepedia.com/media/minecraft-ja.gamepedia.com/c/c5/Grass.png',
-			));
+			]);
 
 		$config_Data = $this->config->getAll();
 
