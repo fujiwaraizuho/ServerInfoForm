@@ -83,7 +83,7 @@ class Main extends PluginBase implements Listener
 	{
 		$player = $event->getPlayer();
 		$packet = $event->getPacket();
-		$rand = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
+		$rand = mt_rand(1,999999);
 
 		if ($packet instanceof ServerSettingsRequestPacket) {
 
