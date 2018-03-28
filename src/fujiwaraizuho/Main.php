@@ -75,7 +75,7 @@ class Main extends PluginBase implements Listener
 
 		$this->data = json_encode($data);
 
-		$this->getLogger()->info("§aINFO§f >> §aEnabled...");
+		$this->getLogger()->info("§aINFO§f > §aEnabled...");
 	}
 
 
@@ -98,6 +98,6 @@ class Main extends PluginBase implements Listener
 
 	public function onDisable()
 	{
-		$this->getLogger()->info("§cINFO§f >> §cDisabled...");
+		$this->getLogger()->info("§cINFO§f > §cDisabled...");
 	}
 }
